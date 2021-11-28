@@ -1,6 +1,8 @@
 #서버 접속 끊어지면 error 발생한 것으로 error massage 확인할 필요 없음. 
 
-streamlit==1.1.0 #0.71, 0.79, 0.89버전 사용시 웹배포 diary의 streamlit colum에서 문제 발생 추정
+#streamlit==1.1.0 #0.71, 0.79, 0.89버전 사용시 웹배포 diary의 streamlit colum에서 문제 발생 추정
+#확정버전 우선 사용
+
 scikit-learn==0.23.2
 awesome-streamlit==20200728.1 #import는 안되고 이 방법이 가능함.
 pip == 21.3.1 # 지속되는 오류로 추가됨.
