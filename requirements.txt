@@ -39,6 +39,6 @@ sentencepiece  ==         0.1.96
 setuptools     ==         59.2.0
 streamlit    ==           1.2.0
 tokenizers    ==          0.10.3
-torch      ==             1.10.0+cu113
+torch      ==             1.10.0
 twine    ==               3.6.0
 wheel         ==          0.37.0
