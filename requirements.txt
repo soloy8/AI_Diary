@@ -10,7 +10,7 @@ pip == 21.3.1 # 지속되는 오류로 추가됨.
 #언어분류기 pip
 #!pip install 'git+https://github.com/SKTBrain/KoBERT.git#egg=kobert_tokenizer&subdirectory=kobert_hf' 방식 진행 불가. 
 
-pip uninstall
+
 #kober_hf모델의 requirement file에서 발췌.
 torch >= 1.8.1 #kobert_hf모델 우선 사용. 
 #transformers >= 4.8.2 #kobert_hf모델 우선 사용. #확정값사용
