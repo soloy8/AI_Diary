@@ -80,10 +80,13 @@ class BERTClassifier(nn.Module):
 # 완성된 모델 불러오기
 import pickle
 
+
 #GPU 사용 -> CPU사용 (이상미님 감사합니다!)
+# If you are running on a CPU-only machine,
+# please use torch.load with map_location=torch.device('cpu') to map your storages to the CPU.
 device = torch.device("cpu")
 model = BERTClassifier(bertmodel,  dr_rate=0.5).to(device)
-model.load_state_dict(torch.load('data/param7.pt'))
+model.load_state_dict(torch.load('data/param7.pt', device))
 
 tok = nlp.data.BERTSPTokenizer(tokenizer, vocab, lower=False)
 tok = tokenizer.tokenize
