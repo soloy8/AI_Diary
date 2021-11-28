@@ -2,7 +2,7 @@
 import streamlit as st
 import awesome_streamlit as ast
 import numpy as np
-from webpage.web_diary_test import *
+from webpage.web_predict import *
 
 
 
@@ -57,4 +57,6 @@ def write():
 
     Push_listen_button = st.button("일기 작성")
     if Push_listen_button:
-        st.success(diary(input_data))
+        result,link = predict(input_data)
+        st.success(result)
+        ast.shared.components.video_youtube(src=link)

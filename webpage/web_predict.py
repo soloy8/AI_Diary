@@ -44,10 +44,6 @@ def predict(predict_sentence):
                 test_eval.append("차분이")
 
         result_emotion = ">> 오늘의 일기에서 " + test_eval[0] + " 느껴집니다.\n\n\n\n\n\n"
-        # return result_emotion
-        
-        
-        # print(">> 입력하신 내용에서 " + test_eval[0] + " 느껴집니다.")
 
         music_eval=[]
         for m in out:
@@ -56,26 +52,26 @@ def predict(predict_sentence):
 
             if np.argmax(logits) == 0:
                 music_eval.append(final_music5.sample(1))
-                
             elif np.argmax(logits) == 1:
                 music_eval.append(final_music4.sample(1))
-                
             elif np.argmax(logits) == 2:
                 music_eval.append(final_music2.sample(1))
-                
             elif np.argmax(logits) == 3:
                 music_eval.append(final_music1.sample(1))
-                
             elif np.argmax(logits) == 4:
                 music_eval.append(final_music7.sample(1))
-                
             elif np.argmax(logits) == 5:
                 music_eval.append(final_music3.sample(1))
-                
             elif np.argmax(logits) == 6:
                 music_eval.append(final_music6.sample(1))
-                
-        result_music = ">> 오늘의 하루와 어울리는 노래는 " + "["+music_eval[0].iloc[0].at['제목']+"-"+ music_eval[0].iloc[0].at['가수']+ "]" + " 입니다."
 
+        # 가수-노래 추천       
+        result_music = ">> 오늘의 하루와 어울리는 노래는 " + "["+music_eval[0].iloc[0].at['제목']+"-"+ music_eval[0].iloc[0].at['가수']+ "]" + " 입니다.\n\n\n\n\n\n"
+        # 가수-노래-링크 추천
+        # link = ">> 들으러가기 " + "[" + music_eval[0].iloc[0].at['Youtube'] + "]"
+
+        link =  music_eval[0].iloc[0].at['Youtube']
         result = result_emotion+result_music
-        return result
+        
+        return result, link
+        

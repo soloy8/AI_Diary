@@ -137,3 +137,26 @@ def predict(predict_sentence):
         
         return result
         # print(">> 입력하신 내용에서 " + test_eval[0] + " 느껴집니다.")
+
+    # 예측 함수2 data 추출.
+    def predict2(predict_sentence):
+
+        data = [predict_sentence, '0']
+        dataset_another = [data]
+
+        another_test = BERTDataset(dataset_another, 0, 1, tok, vocab, max_len, True, False)
+        test_dataloader = torch.utils.data.DataLoader(another_test, batch_size=batch_size, num_workers=0)
+
+        model.eval()
+
+        for batch_id, (token_ids, valid_length, segment_ids, label) in enumerate(test_dataloader):
+            token_ids = token_ids.long().to(device)
+            segment_ids = segment_ids.long().to(device)
+
+            valid_length = valid_length
+            label = label.long().to(device)
+
+            out = model(token_ids, valid_length, segment_ids)
+            logits = logits.detach().cpu().numpy()
+
+            return np.argmax(logits)

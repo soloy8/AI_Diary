@@ -55,7 +55,7 @@ page = PAGES[selection]
 with st.spinner(f"Loading {selection} ..."):
     ast.shared.components.write_page(page)
 st.sidebar.title("Contribute")
-st.sidebar.write("회전하는 기여자 명판 제작 고려중.")
+st.sidebar.write(".")
 
 
 #사이드바 종료

@@ -1,10 +1,10 @@
 import torch
 
 from data.kobert_tokenizer import KoBERTTokenizer
-tokenizer = KoBERTTokenizer.from_pretrained('kobert/kobert-base-v1')
+tokenizer = KoBERTTokenizer.from_pretrained('skt/kobert-base-v1')
 
 from transformers import BertModel
-model = BertModel.from_pretrained('kobert/kobert-base-v1')
+model = BertModel.from_pretrained('skt/kobert-base-v1')
 
 def get_kobert_model(model_path, vocab_file, ctx="cpu"):
     bertmodel = BertModel.from_pretrained(model_path)
@@ -16,7 +16,7 @@ def get_kobert_model(model_path, vocab_file, ctx="cpu"):
     return bertmodel, vocab_b_obj
 
 import gluonnlp as nlp
-bertmodel, vocab = get_kobert_model('kobert/kobert-base-v1',tokenizer.vocab_file)
+bertmodel, vocab = get_kobert_model('skt/kobert-base-v1',tokenizer.vocab_file)
 
 # KoBERT 모델에 적합한 입력 데이터 구성하기
 import torch
