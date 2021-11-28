@@ -80,8 +80,8 @@ class BERTClassifier(nn.Module):
 # 완성된 모델 불러오기
 import pickle
 
-#GPU 사용
-device = torch.device("cuda:0")
+#GPU 사용 -> CPU사용 (이상미님 감사합니다!)
+device = torch.device("cpu")
 model = BERTClassifier(bertmodel,  dr_rate=0.5).to(device)
 model.load_state_dict(torch.load('data/param7.pt'))
 
