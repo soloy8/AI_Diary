@@ -60,3 +60,5 @@ def write():
         result,link = predict(input_data)
         st.success(result)
         ast.shared.components.video_youtube(src=link)
+
+    st.write("모바일 버전으로 이동 https://share.streamlit.io/soloy8/dj_diary/main.py")
