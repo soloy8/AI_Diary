@@ -54,8 +54,19 @@ page = PAGES[selection]
 #스피너 여기서 들어가서 한번 더 넣으면 이중임.
 with st.spinner(f"Loading {selection} ..."):
     ast.shared.components.write_page(page)
-st.sidebar.title("Contribute")
-st.sidebar.write(".")
+st.sidebar.title("Diary_Sentiment_Analysis")
+st.sidebar.write("인공지능(AI)  자연어처리(NLP)")
+st.sidebar.write("감성분석(Sentiment-Analysis)")
+st.sidebar.title("\nContribute")
+st.sidebar.write(
+"""
+황보현 교수님 캡스톤디자인B \n
+감동의 8조 (가나다순) \n
+길지호 김소원 이상미 이지훈 정준엽\n
+\n
+모두의 노고에 진심으로 감사드립니다.\n
+\n
+""")
 
 
 #사이드바 종료
