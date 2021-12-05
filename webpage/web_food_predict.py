@@ -4,28 +4,26 @@ from webpage.web_food_data import *
 
 # 예측 함수
 def predict(predict_sentence):
-
     data = [predict_sentence, '0']
     dataset_another = [data]
 
-    another_test = BERTDataset(dataset_another, 0, 1, tok,vocab, max_len, True, False)
+    another_test = BERTDataset(dataset_another, 0, 1, tok, vocab, max_len, True, False)
     test_dataloader = torch.utils.data.DataLoader(another_test, batch_size=batch_size, num_workers=0)
-    
+
     model.eval()
 
     for batch_id, (token_ids, valid_length, segment_ids, label) in enumerate(test_dataloader):
         token_ids = token_ids.long().to(device)
         segment_ids = segment_ids.long().to(device)
 
-        valid_length= valid_length
+        valid_length = valid_length
         label = label.long().to(device)
 
         out = model(token_ids, valid_length, segment_ids)
 
-
-        test_eval=[]
+        test_eval = []
         for i in out:
-            logits=i
+            logits = i
             logits = logits.detach().cpu().numpy()
 
             if np.argmax(logits) == 0:
@@ -45,33 +43,33 @@ def predict(predict_sentence):
 
         result_emotion = ">> 접시에서 " + test_eval[0] + " 느껴집니다.\n\n\n\n\n\n"
 
-        food_eval=[]
+        music_eval = []
         for m in out:
-            logits=m
+            logits = m
             logits = logits.detach().cpu().numpy()
 
             if np.argmax(logits) == 0:
-                food_eval.append(final_food5.sample(1))
+                music_eval.append(final_music5.sample(1))
             elif np.argmax(logits) == 1:
-                food_eval.append(final_food4.sample(1))
+                music_eval.append(final_music4.sample(1))
             elif np.argmax(logits) == 2:
-                food_eval.append(final_food2.sample(1))
+                music_eval.append(final_music2.sample(1))
             elif np.argmax(logits) == 3:
-                food_eval.append(final_food1.sample(1))
+                music_eval.append(final_music1.sample(1))
             elif np.argmax(logits) == 4:
-                food_eval.append(final_food7.sample(1))
+                music_eval.append(final_music7.sample(1))
             elif np.argmax(logits) == 5:
-                food_eval.append(final_food3.sample(1))
+                music_eval.append(final_music3.sample(1))
             elif np.argmax(logits) == 6:
-                food_eval.append(final_food6.sample(1))
+                music_eval.append(final_music6.sample(1))
 
-        # 음식-성분 추천
-        result_food = ">> 지금의 감정과 어울리는 음식은 " + "["+food_eval[0].iloc[0].at['음식']+"-"+ food_eval[0].iloc[0].at['성분']+ "]" + " 입니다.\n\n\n\n\n\n"
-        # 음식-성분-링크 추천
-        # link = ">> 들으러가기 " + "[" + food_eval[0].iloc[0].at['Youtube'] + "]"
+        # 가수-노래 추천
+        result_music = ">> AI가 추천하는 맞춤 음식 " + "[" + music_eval[0].iloc[0].at['제목'] + "-" + music_eval[0].iloc[0].at[
+            '가수'] + "]" + " 입니다.\n\n\n\n\n\n"
+        # 가수-노래-링크 추천
+        # link = ">> 들으러가기 " + "[" + music_eval[0].iloc[0].at['Youtube'] + "]"
 
-        link =  food_eval[0].iloc[0].at['Photo_link']
-        result = result_emotion+result_food
-        
+        link = music_eval[0].iloc[0].at['Youtube']
+        result = result_emotion + result_music
+
         return result, link
-        

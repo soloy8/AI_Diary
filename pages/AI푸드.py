@@ -16,7 +16,10 @@ def write():
         result,link = predict(input_data)
         st.success(result)
         from PIL import Image
-        st.image(src=link, width=700)  # 400잡으면 전체 400축소됨.
+        st.image(link, width=700)  # 400잡으면 전체 400축소됨.
+
+    st.image(https: // cdn.pixabay.com / photo / 2018 / 04 / 20 / 18 / 13 / tablecloth - 3336687_960_720.jpg, width=700)
+
 
     st.write(
     """
