@@ -33,9 +33,9 @@ import pages.제작진행부분
 #사이드바
 #사이드바 PAGES 정의
 PAGES = {
-    "AI감정분석": pages.AI감정분석,
     "AI뮤직": pages.AI뮤직,
     "AI푸드": pages.AI푸드,
+    "AI감정분석": pages.AI감정분석,
     "AI여행": pages.AI여행,
     "달력": pages.달력,
     "제작진행부분": pages.제작진행부분,
