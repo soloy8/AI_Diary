@@ -89,24 +89,24 @@ def view_all_users():
 
 def main():
     # 공통실행
-    st.title("simple login")
+    st.title("간편 회원가입")
 
     # 선택실행
-    login = ["Home", "Login", "Signup"]
+    login = ["홈", "로그인", "회원가입"]
     choice = st.sidebar.selectbox("Menu", login)
 
     ## home(작동확인)
-    if choice == "Home":
+    if choice == "홈":
         st.subheader("Home")
 
 
     ## Login
     # c.f. subheader9 미존재로 error
-    elif choice == "Login":
+    elif choice == "로그인":
         st.subheader("Login Section")
-        username = st.sidebar.text_input("User Name")
+        username = st.sidebar.text_input("ID")
 
-        password = st.sidebar.text_input("Password", type='password')
+        password = st.sidebar.text_input("PW", type='password')
         if st.sidebar.button("Login"):
             create_usertable()
             result = login_user(username, password)
@@ -128,15 +128,15 @@ def main():
 
     ##Sign_up
     # =
-    elif choice == "Signup":
-        st.subheader("Create New Account")
-        new_user = st.text_input("Username")
-        new_password = st.text_input("Password", type='password')
+    elif choice == "회원가입":
+        st.subheader("새로운 계정을 생성하세요. 영어, 숫자만 ID, PW사용 가능합니다.")
+        new_user = st.text_input("ID")
+        new_password = st.text_input("PW", type='password')
         if st.button("Signup"):
             create_usertable()
             add_userdata(new_user, new_password)
-            st.success("You have successfully created a valid Account")
-            st.info("Go to Login Menu to login")
+            st.success("성공적으로 가입되었습니다. ")
+            st.info("로그인 메뉴에서 로그인 해주세요.")
 
 
 ## run
