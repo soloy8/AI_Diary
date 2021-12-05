@@ -17,7 +17,6 @@ import awesome_streamlit as ast
 #src import를 못해서 추가시킴.
 
 #scr의 각 페이지 import
-import pages.다이어리
 import pages.AI감정분석
 import pages.AI뮤직
 import pages.AI푸드
@@ -34,7 +33,6 @@ import pages.제작진행부분
 #사이드바
 #사이드바 PAGES 정의
 PAGES = {
-    "다이어리": pages.다이어리,
     "AI감정분석": pages.AI감정분석,
     "AI뮤직": pages.AI뮤직,
     "AI푸드": pages.AI푸드,
