@@ -13,8 +13,8 @@ import numpy as np
 def write():
     #위 구문 안쓰면 오류임
 
-    st.image('data/떡볶이.png', width=700, caption="Image example: Diary")  # 400잡으면 전체 400축소됨.
-    
+    st.image('https://cdn.pixabay.com/photo/2016/08/20/13/06/toppokki-1607479_960_720.jpg', width=700, caption="Image example: Diary")  # 400잡으면 전체 400축소됨.
+
     st.write(
     """
     광운대 산업심리학과 이상희 교수팀 연구논문
