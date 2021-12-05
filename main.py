@@ -92,8 +92,8 @@ def main():
     st.title("simple login")
 
     # 선택실행
-    menu = ["Home", "Login", "Signup"]
-    choice = st.sidebar.selectbox("Menu", menu)
+    login = ["Home", "Login", "Signup"]
+    choice = st.sidebar.selectbox("Menu", login)
 
     ## home(작동확인)
     if choice == "Home":
