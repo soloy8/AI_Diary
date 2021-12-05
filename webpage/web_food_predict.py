@@ -3,7 +3,7 @@ from webpage.web_food_data import *
 
 
 # 예측 함수
-def food_predict(predict_sentence):
+def predict(predict_sentence):
 
     data = [predict_sentence, '0']
     dataset_another = [data]
@@ -45,33 +45,33 @@ def food_predict(predict_sentence):
 
         result_emotion = ">> 접시에서 " + test_eval[0] + " 느껴집니다.\n\n\n\n\n\n"
 
-        music_eval=[]
+        food_eval=[]
         for m in out:
             logits=m
             logits = logits.detach().cpu().numpy()
 
             if np.argmax(logits) == 0:
-                music_eval.append(final_music5.sample(1))
+                food_eval.append(final_food5.sample(1))
             elif np.argmax(logits) == 1:
-                music_eval.append(final_music4.sample(1))
+                food_eval.append(final_food4.sample(1))
             elif np.argmax(logits) == 2:
-                music_eval.append(final_music2.sample(1))
+                food_eval.append(final_food2.sample(1))
             elif np.argmax(logits) == 3:
-                music_eval.append(final_music1.sample(1))
+                food_eval.append(final_food1.sample(1))
             elif np.argmax(logits) == 4:
-                music_eval.append(final_music7.sample(1))
+                food_eval.append(final_food7.sample(1))
             elif np.argmax(logits) == 5:
-                music_eval.append(final_music3.sample(1))
+                food_eval.append(final_food3.sample(1))
             elif np.argmax(logits) == 6:
-                music_eval.append(final_music6.sample(1))
+                food_eval.append(final_food6.sample(1))
 
         # 음식-성분 추천
-        result_music = ">> 지금의 감정과 어울리는 음식은 " + "["+music_eval[0].iloc[0].at['음식']+"-"+ music_eval[0].iloc[0].at['성분']+ "]" + " 입니다.\n\n\n\n\n\n"
+        result_food = ">> 지금의 감정과 어울리는 음식은 " + "["+food_eval[0].iloc[0].at['음식']+"-"+ food_eval[0].iloc[0].at['성분']+ "]" + " 입니다.\n\n\n\n\n\n"
         # 음식-성분-링크 추천
-        # link = ">> 들으러가기 " + "[" + music_eval[0].iloc[0].at['Youtube'] + "]"
+        # link = ">> 들으러가기 " + "[" + food_eval[0].iloc[0].at['Youtube'] + "]"
 
-        link =  music_eval[0].iloc[0].at['Photo_link']
-        result = result_emotion+result_music
+        link =  food_eval[0].iloc[0].at['Photo_link']
+        result = result_emotion+result_food
         
         return result, link
         

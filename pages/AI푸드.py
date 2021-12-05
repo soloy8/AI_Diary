@@ -13,7 +13,7 @@ def write():
 
     Push_listen_button = st.button("AI 음식 추천")
     if Push_listen_button:
-        result,link = food_predict(input_data)
+        result,link = predict(input_data)
         st.success(result)
         from PIL import Image
         st.image(src=link, width=700)  # 400잡으면 전체 400축소됨.
