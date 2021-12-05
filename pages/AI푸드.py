@@ -7,6 +7,7 @@ from webpage.web_food_predict import *
 def write():
     #위 구문 안쓰면 오류임
 
+    st.title('맛있게 드시고 건강하세요~')
     input_data = st.text_area("식사 전의 기분을 입력하세요!")
 
     # 여기서 input_data를 감정분석 프로그램에 넘겨주고 그 인수를 받아와야 한다. - 해결!
