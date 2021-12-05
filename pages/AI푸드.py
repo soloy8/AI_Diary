@@ -2,7 +2,7 @@
 import streamlit as st
 import awesome_streamlit as ast
 from awesome_streamlit.core.services import resources
-from webpage.web_predict import *
+from webpage.web_food_predict import *
 
 def write():
     #위 구문 안쓰면 오류임
