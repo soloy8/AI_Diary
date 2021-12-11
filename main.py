@@ -95,7 +95,7 @@ def view_all_users():
 def main():
 
     # 선택실행
-    login = ["My Home", "로그인", "회원가입"]
+    login = ["회원가입", "로그인", "My Home"]
     choice = st.sidebar.selectbox("회원가입 화면은 페이지 하단에 생성됩니다.", login)
 
     ## home(작동확인)
